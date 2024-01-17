@@ -8,5 +8,6 @@ python "C:\Users\Dell\OneDrive\Desktop\HAR\HAR.py" --"C:\Users\Dell\OneDrive\Des
 
 #For the webcam, we will use this
 
-python "C:\Users\Dell\OneDrive\Desktop\HAR\HAR.py" --"C:\Users\Dell\OneDrive\Desktop\HAR\resnet-34_kinetics.onnx" --"C:\Users\Dell\OneDrive\Desktop\HAR\Actions.txt"
+python "C:\Users\Dell\OneDrive\Desktop\HAR\HAR.py" -m "C:\Users\Dell\OneDrive\Desktop\HAR\resnet-34_kinetics.onnx" -c "C:\Users\Dell\OneDrive\Desktop\HAR\Actions.txt"
+
 (Replace HAR.py with your python file name and Actions.txt with your kinetics dataset text file name. )
