@@ -1,0 +1,12 @@
+#Using Arguments
+#We will use python parser arguments for our project. There are two arguments, one for using provided video stream and one for using the webcam.
+
+#For video-stream
+
+python "C:\Users\Dell\OneDrive\Desktop\HAR\HAR.py" --"C:\Users\Dell\OneDrive\Desktop\HAR\resnet-34_kinetics.onnx" --classes Actions.txt --input videos/example_activities.mp4 --gpu 1 --output output.mp4
+(Replace HAR.py with your python file name and Actions.txt with your kinetics dataset text file name. )
+
+#For the webcam, we will use this
+
+python "C:\Users\Dell\OneDrive\Desktop\HAR\HAR.py" --"C:\Users\Dell\OneDrive\Desktop\HAR\resnet-34_kinetics.onnx" --"C:\Users\Dell\OneDrive\Desktop\HAR\Actions.txt"
+(Replace HAR.py with your python file name and Actions.txt with your kinetics dataset text file name. )
