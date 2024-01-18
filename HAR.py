@@ -23,17 +23,11 @@ ACT = open(args["classes"]).read().strip().split("\n")
 SAMPLE_DURATION = 16
 SAMPLE_SIZE = 112       
 
-
-
 # Load the Deep Learning model.
 print("Loading The Deep Learning Model For Human Activity Recognition")
 gp = cv2.dnn.readNet(args["model"])
 
-
-
-
 #Check if GPU will be used here 
-
 if args["gpu"] > 0:
 	print("setting preferable backend and target to CUDA...")
 	gp.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
@@ -46,13 +40,11 @@ writer = None
 fps = vs.get(cv2.CAP_PROP_FPS) 
 print("Original FPS:", fps)
 
-
 # Detect continoulsy till terminal is expilicitly closed 
 while True:
     # Frame intilasation
     frames    = []  # frames for processing
     originals = []  # original frames
-
 
     # Use sample frames 
     for i in range(0, SAMPLE_DURATION):
@@ -73,23 +65,18 @@ while True:
     blob = np.transpose(blob, (1, 0, 2, 3))
     blob = np.expand_dims(blob, axis=0)
 
-
     # Predict activity using blob
-
     gp.setInput(blob)
     outputs = gp.forward()
     label = ACT[np.argmax(outputs)]
 
     # for adding lables
-
     for frame in originals:
         # append predicted activity
-
         cv2.rectangle(frame, (0, 0), (300, 40), (0, 0, 0), -1)
         cv2.putText(frame, label, (10, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
        	
         # if displayed is yes 
-
         if args["display"] > 0:
             cv2.imshow("Activity Recognition", frame)
             key = cv2.waitKey(1) & 0xFF
